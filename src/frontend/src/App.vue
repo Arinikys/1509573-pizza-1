@@ -1,32 +1,26 @@
 <template>
-  <div id="app">
-    <div class="main">
-      <div class="main__wrapper">
-        <div class="main__header">
-          <img
-            src="@/assets/img/logo.svg"
-            width="300"
-            height="47"
-            alt="V!U!E! Pizza"
-          />
-        </div>
-        <h1>Добро пожаловать!</h1>
-        <p>
-          Это проект V!U!E! Pizza для обучения на профессиональном
-          онлайн‑курсе<br />
-          <b>«Vue.js для опытных разработчиков».</b>
-        </p>
-      </div>
-    </div>
+  <div>
+    <Header />
+    <Index />
   </div>
 </template>
 
 <script>
+import Index from "@/views/Index";
+import Header from "@/layouts/Header";
+
 export default {
   name: "App",
+  components: {
+    Index,
+    Header,
+  },
 };
 </script>
 
 <style lang="scss">
-@import "~@/assets/scss/app";
+@import "~@/assets/scss/libs/normalize.scss";
+@import "~@/assets/scss/fonts.scss";
+@import "~@/assets/scss/scaffolding.scss";
+@import "~@/assets/scss/visually-hidden.scss";
 </style>
