@@ -7,6 +7,9 @@
 
   padding-left: 36px;
 
+  cursor: move;
+  user-select: none;
+
   &::before {
     @include p_center-v;
 
