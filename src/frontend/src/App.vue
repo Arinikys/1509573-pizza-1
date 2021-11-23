@@ -1,19 +1,25 @@
 <template>
   <div>
-    <Header />
-    <Index />
+    <AppLayout :pizza="pizza" :user="user" />
   </div>
 </template>
 
 <script>
-import Index from "@/views/Index";
-import Header from "@/layouts/Header";
+import pizza from "@/static/pizza.json";
+import user from "@/static/user.json";
+
+import AppLayout from "@/layouts/AppLayout";
 
 export default {
   name: "App",
   components: {
-    Index,
-    Header,
+    AppLayout,
+  },
+  data() {
+    return {
+      pizza: pizza,
+      user: user,
+    };
   },
 };
 </script>
