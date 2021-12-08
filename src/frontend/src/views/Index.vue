@@ -1,5 +1,5 @@
 <template>
-  <main class="content">
+  <div>
     <form action="#" method="post">
       <div class="content__wrapper">
         <h1 class="title title--big">Конструктор пиццы</h1>
@@ -22,7 +22,7 @@
         />
       </div>
     </form>
-  </main>
+  </div>
 </template>
 
 <script>
@@ -33,7 +33,7 @@ import BuilderIngredientsSelector from "@/builder/components/BuilderIngredientsS
 import { INIT_PIZZA_SET } from "@/common/constants";
 
 export default {
-  name: "IndexPage",
+  name: "Index",
   components: {
     BuilderPizzaView,
     BuilderDoughSelector,
