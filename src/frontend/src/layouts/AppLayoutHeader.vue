@@ -11,10 +11,10 @@
       </a>
     </div>
     <div class="header__cart">
-      <a href="#">{{ sum }} ₽</a>
+      <a href="/card">{{ sum }} ₽</a>
     </div>
     <div v-if="isAuth" class="header__user">
-      <a href="#">
+      <a href="/profile">
         <img :src="user.avatar" :alt="user.name" width="32" height="32" />
         <span>{{ user.name }}</span>
       </a>

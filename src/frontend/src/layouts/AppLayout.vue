@@ -1,23 +1,22 @@
 <template>
-  <div>
-    <AppLayoutHeader :sum="sum" :isAuth="true" :user="user" />
-    <Index
-      :pizza="pizza"
-      @createPizza="createPizza"
-      @addPizzaToOrder="addPizzaToOrder"
-    />
-  </div>
+  <component
+    :is="layout"
+    :sum="sum"
+    :isAuth="true"
+    :user="user"
+    :pizza="pizza"
+    @createPizza="createPizza"
+    @addPizzaToOrder="addPizzaToOrder"
+  >
+    <slot />
+  </component>
 </template>
 
 <script>
-import AppLayoutHeader from "@/layouts/AppLayoutHeader";
-import Index from "@/views/Index";
+const defaultLayout = "AppLayoutDefault";
+
 export default {
   name: "AppLayout",
-  components: {
-    AppLayoutHeader,
-    Index,
-  },
   props: {
     pizza: {
       type: Object,
@@ -33,6 +32,12 @@ export default {
       sum: 0,
       order: [],
     };
+  },
+  computed: {
+    layout() {
+      const layout = this.$route.meta.layout || defaultLayout;
+      return () => import(`@/layouts/${layout}.vue`);
+    },
   },
   methods: {
     createPizza(sum) {

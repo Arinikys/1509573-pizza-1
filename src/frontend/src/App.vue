@@ -1,13 +1,12 @@
 <template>
-  <div>
-    <AppLayout :pizza="pizza" :user="user" />
-  </div>
+  <AppLayout :pizza="pizza" :user="user">
+    <router-view :pizza="pizza" :user="user" />
+  </AppLayout>
 </template>
 
 <script>
 import pizza from "@/static/pizza.json";
 import user from "@/static/user.json";
-
 import AppLayout from "@/layouts/AppLayout";
 
 export default {
