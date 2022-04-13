@@ -4,10 +4,11 @@ import modules from "@/store/modules";
 
 Vue.use(Vuex);
 
+const state = () => ({
+  users: [],
+});
+
 export default new Vuex.Store({
-  state: {},
-  getters: {},
-  mutations: {},
-  actions: {},
+  state,
   modules,
 });

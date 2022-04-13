@@ -31,6 +31,8 @@ import BuilderDoughSelector from "@/builder/components/BuilderDoughSelector";
 import BuilderSizeSelector from "@/builder/components/BuilderSizeSelector";
 import BuilderIngredientsSelector from "@/builder/components/BuilderIngredientsSelector";
 import { INIT_PIZZA_SET } from "@/common/constants";
+import { cloneDeep } from "lodash";
+import { mapState, mapMutations } from "vuex";
 
 export default {
   name: "Index",
@@ -48,8 +50,11 @@ export default {
   },
   data() {
     return {
-      pizzaSet: {},
+      pizzaSet: cloneDeep(INIT_PIZZA_SET),
     };
+  },
+  computed: {
+    ...mapState("Builder", ["pizzaSet"]),
   },
   created() {
     this.resetPizzaSet();
@@ -60,8 +65,7 @@ export default {
       this.updatePrice();
     },
     resetPizzaSet() {
-      this.pizzaSet = { ...INIT_PIZZA_SET };
-      this.pizzaSet.filling = [];
+      this.pizzaSet = cloneDeep(INIT_PIZZA_SET);
     },
     setFilling(fill) {
       let index = this.pizzaSet.filling.findIndex(
